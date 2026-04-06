@@ -4,6 +4,7 @@ const ControlledField = () => {
 
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [email, setEmail] = useState('')
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -21,10 +22,14 @@ const ControlledField = () => {
         }
     }
 
+    const handleEmailChange = e => {
+        setEmail(e.target.value)
+    }
+
     return (
         <div>
             <form onSubmit={handleSubmit} action="">
-                <input type="email" name="email" placeholder="Email" /><br />
+                <input type="email" name="email" onChange={handleEmailChange} defaultValue={email} placeholder="Email" /><br />
                 <input type="password" name="password" defaultValue={password} onChange={handlePasswordOnChange} placeholder="Password" /><br />
                 <input type="submit" value='Submit' /><br />
 
